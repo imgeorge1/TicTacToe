@@ -1,4 +1,5 @@
 let boardState = ["", "", "", "", "", "", "", "", ""];
+let drawArray = []
 let winConditions = [
   [1, 2, 3], // Top row
   [4, 5, 6], // Middle row
@@ -37,12 +38,18 @@ document.getElementById("board").addEventListener("mousedown", (e)=>{
     boardState[index] = turn
     e.target.textContent = turn
     e.target.disabled = true
+    drawArray.push(e.target.id)
   }
   
   if (!checkWinner()) {
     turn = turn === "X" ? "O" : "X";  // Switch turns
   }
-
+  if(drawArray.length === 9){
+    setTimeout(drawMessage, 100)
+    function drawMessage(){
+      alert("It's a draw!")
+    }
+  }
 
 })
 
