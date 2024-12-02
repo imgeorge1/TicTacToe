@@ -42,14 +42,17 @@ document.getElementById("board").addEventListener("mousedown", (e)=>{
   }
   
   if (!checkWinner()) {
-    turn = turn === "X" ? "O" : "X";  // Switch turns
-  }
-  if(drawArray.length === 9){
-    setTimeout(drawMessage, 100)
-    function drawMessage(){
-      alert("It's a draw!")
+    // If no winner, check if it's a draw
+    if (drawArray.length === 9) {
+      setTimeout(() => {
+        alert("It's a draw!");
+        gameOver = true;
+      }, 100);
+    } else {
+      turn = turn === "X" ? "O" : "X";  // Switch turns
     }
   }
+  
 })
 
 let cells = document.getElementsByClassName("cell")
