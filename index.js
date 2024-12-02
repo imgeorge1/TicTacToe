@@ -32,7 +32,7 @@ document.getElementById("board").addEventListener("mousedown", (e)=>{
   if(gameOver) return
 
   const id = e.target.id
-  const index = id -1
+  const index = id - 1
 
   if(boardState[index] === ""){
     boardState[index] = turn
@@ -50,6 +50,18 @@ document.getElementById("board").addEventListener("mousedown", (e)=>{
       alert("It's a draw!")
     }
   }
-
 })
 
+let cells = document.getElementsByClassName("cell")
+
+function restart(){
+  boardState = ["", "", "", "", "", "", "", "", ""];
+  drawArray = []
+  gameOver = false
+
+  for (let cell of cells){
+    cell.textContent = ""
+    cell.disabled = false
+  }
+
+}

@@ -1,4 +1,4 @@
-body{
+.container{
   display: flex;
   margin-top: 20vh;
   justify-content: center;
@@ -26,3 +26,4 @@ body{
   background-color: white;
   color: black;
 }
+
